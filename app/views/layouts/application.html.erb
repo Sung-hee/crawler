@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+  <div id="data_id" style="height:100%;">
+    <table class="table" id="table_id" style="height:100%;">
+      <thead>
+        <tr style="background-color:#F0F0F0">
+          <th>종목</th>
+          <th>월물</th>
+          <th>현재가</th>
+          <th>고가</th>
+          <th>저가</th>
+          <th>변동</th>
+          <th>변동 %</th>
+          <th>시간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>다우존스</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>S%P 500</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>나스닥 100</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr style="background-color:#F0F0F0">
+          <th>지수</th>
+          <th>-</th>
+          <th>현재가</th>
+          <th>고가</th>
+          <th>저가</th>
+          <th>변동</th>
+          <th>변동 %</th>
+          <th>시간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>닛케이</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>상하이종합</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr style="background-color:#F0F0F0">
+          <th>상품</th>
+          <th>월물</th>
+          <th>종가</th>
+          <th>고가</th>
+          <th>저가</th>
+          <th>변동</th>
+          <th>변동 %</th>
+          <th>시간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>금</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>WTI유</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr style="background-color:#F0F0F0">
+          <th>종목</th>
+          <th>종목</th>
+          <th>종가</th>
+          <th>고가</th>
+          <th>저가</th>
+          <th>변동</th>
+          <th>변동 %</th>
+          <th>시간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>달러/원</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+    <%= yield %>    
+  </div>
+</body>
+</html>
