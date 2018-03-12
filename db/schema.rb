@@ -11,6 +11,108 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180312105735) do
+
+  create_table "djis", force: :cascade do |t|
+    t.string   "title"
+    t.string   "date"
+    t.string   "current"
+    t.string   "high"
+    t.string   "low"
+    t.string   "variancce"
+    t.string   "variance_per"
+    t.string   "hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "golds", force: :cascade do |t|
+    t.string   "title"
+    t.string   "date"
+    t.string   "closed"
+    t.string   "high"
+    t.string   "low"
+    t.string   "variance"
+    t.string   "variance_per"
+    t.string   "hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "nasdaqs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "date"
+    t.string   "current"
+    t.string   "high"
+    t.string   "low"
+    t.string   "variancce"
+    t.string   "variance_per"
+    t.string   "hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "nikkeis", force: :cascade do |t|
+    t.string   "title"
+    t.string   "current"
+    t.string   "high"
+    t.string   "low"
+    t.string   "variance"
+    t.string   "variance_per"
+    t.string   "hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "sp500s", force: :cascade do |t|
+    t.string   "title"
+    t.string   "date"
+    t.string   "current"
+    t.string   "high"
+    t.string   "low"
+    t.string   "variancce"
+    t.string   "variance_per"
+    t.string   "hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "ssecs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "current"
+    t.string   "high"
+    t.string   "low"
+    t.string   "variance"
+    t.string   "variance_per"
+    t.string   "hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "usdkrws", force: :cascade do |t|
+    t.string   "title"
+    t.string   "event"
+    t.string   "current"
+    t.string   "high"
+    t.string   "low"
+    t.string   "variance"
+    t.string   "variance_per"
+    t.string   "hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "wtis", force: :cascade do |t|
+    t.string   "title"
+    t.string   "date"
+    t.string   "closed"
+    t.string   "high"
+    t.string   "low"
+    t.string   "variance"
+    t.string   "variance_per"
+    t.string   "hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
 end

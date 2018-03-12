@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  date: MyString
+  current: MyString
+  high: MyString
+  low: MyString
+  variancce: MyString
+  variance_per: MyString
+  hours: MyString
+
+two:
+  title: MyString
+  date: MyString
+  current: MyString
+  high: MyString
+  low: MyString
+  variancce: MyString
+  variance_per: MyString
+  hours: MyString
