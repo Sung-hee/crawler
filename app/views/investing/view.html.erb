@@ -2,7 +2,7 @@
   $(document).ready(function(){
     setInterval(function (){
       $.ajax({
-        url: "https://investingcrawling-sungheeek.c9users.io/",
+        url: "http://13.125.213.27/",
         type: "GET",
         dataType: "json",
         async: false,
@@ -312,6 +312,6 @@
           $('#table_id').html(json_data);
         }
       });
-    }, 60000)
+    }, 100)
   });
 </script>
