@@ -1,4 +1,5 @@
 class Nikkei < ActiveRecord::Base
+  while true
     major_url = "https://kr.investing.com/indices/major-indices"
     major_html = HTTParty.get(major_url)
     doc = Nokogiri::HTML(major_html)
@@ -14,4 +15,6 @@ class Nikkei < ActiveRecord::Base
         :hours => doc.css("#pair_178 > td.pid-178-time").text
       )
     end 
+    sleep 30
+  end
 end
