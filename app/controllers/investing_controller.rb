@@ -286,6 +286,108 @@ class InvestingController < ApplicationController
       render json: {dji: @dji, sp500: @sp500, nasdaq: @nasdaq, nikkei: @nikkei, ssec: @ssec, gold: @gold, wti: @wti, usdkrw: @usdkrw}
     end
   
-  def test
+  def newscrawling
+    # @article = Hash.new
+    
+    @titles = Array.new
+    @press = Array.new
+    @wdate = Array.new
+    @url = Array.new
+      
+    # 차후 companycode 파라미터를 통해 여러 기업의 기사를 긁어옴
+    # companycode = request.original_url.split("companycode=").last
+    # puts companycode
+    
+    @urlparam = request.query_parameters
+    
+    url = "http://finance.naver.com/item/news_news.nhn?code=#{@urlparam['code']}"
+    naver_html = HTTParty.get(url)
+    doc = Nokogiri::HTML(naver_html)
+    
+    # 타이틀 
+    doc.css("body > div > table.type5 > tbody > tr > td.title > a").each do |titles|
+      @titles << titles.text
+    end
+    puts @titles.inspect
+    
+    # 정보제공 
+    doc.css("body > div > table.type5 > tbody > tr > td.info").each do |press|
+      @press << press.text
+    end
+    puts @press.inspect
+    
+    # 날짜 
+    doc.css("body > div > table.type5 > tbody > tr > td.date").each do |wdates|
+      @wdate << wdates.text
+    end
+    
+    puts @wdate.inspect
+    # url 
+    doc.css("body > div > table.type5 > tbody > tr > td.title").each do |urls|
+      @url << urls.css("a")[0]['href']
+    end
+    
+    puts @url.inspect
+    
+    # article id
+    @article_id = Array.new
+    
+    @url.each do |id|
+      @article_id << id[31,10]
+    end
+    
+    puts @article_id
+    
+    # office id
+    @office_id = Array.new
+    
+    @url.each do |id|
+      @office_id << id[52,3]
+    end
+    # @office_id = @url_test[31,10]
+    
+    puts @office_id
+    
+    render json: {title: @titles, press: @press, wdate: @wdate, url: @url, article_id: @article_id, office_id: @office_id}
+  end
+  
+  def korea
+    korea_url = "https://kr.investing.com/indices/south-korea-indices"
+    korea_html = HTTParty.get(korea_url)
+    doc = Nokogiri::HTML(korea_html)
+    
+    @kospi = Array.new
+    
+    doc.css("#cr1").each do |djis|
+      @kospi << {
+        title: doc.css("#pair_37426 > td.bold.left.noWrap.elp.plusIconTd > a").text,
+        current: doc.css("#pair_37426 > td.pid-37426-last").text,
+        high: doc.css("#pair_37426 > td.pid-37426-high").text,
+        low: doc.css("#pair_37426 > td.pid-37426-low").text,
+        variance: doc.css("#pair_37426 > td.bold.pid-37426-pc").text,
+        variance_per: doc.css("#pair_37426 > td.bold.pid-37426-pcp").text,
+        hours: doc.css("#pair_37426 > td.pid-37426-time").text
+      }
+    end
+    
+    puts @kospi
+    
+    @kosdaq = Array.new
+    
+    doc.css("#cr1").each do |djis|
+      @kosdaq << {
+        title: doc.css("#pair_38016 > td.bold.left.noWrap.elp.plusIconTd > a").text,
+        current: doc.css("#pair_38016 > td.pid-38016-last").text,
+        high: doc.css("#pair_38016 > td.pid-38016-high").text,
+        low: doc.css("#pair_38016 > td.pid-38016-low").text,
+        variance: doc.css("#pair_38016 > td.pid-38016-low").text,
+        variance_per: doc.css("#pair_38016 > td.bold.pid-38016-pcp").text,
+        hours: doc.css("#pair_38016 > td.pid-38016-time").text
+      }
+    end
+    
+    puts @kosdaq
+    
+    render json: {kospi: @kospi, kosdaq: @kosdaq}
   end
 end
